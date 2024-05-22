@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mystic Leaf Books</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+        /*TOP*/
+
+        body {
+            font-family: Georgia, serif;
+            font-size: 16px;
+            color: whitesmoke;
+            background: url('/static/background2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        h1 {
+            font-family: "Prata", serif;
+            font-weight: 400;
+            font-size: 70px;
+            color: whitesmoke;
+            text-align: left;
+            margin-top: 50px;
+        }
+
+        /*NAVIGATION*/
+
+        nav{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 0 10px #9A7042;
+            background: transparent;
+            position: fixed;
+            left: 0;
+            z-index: 100;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+
+        .nav li a {
+            color: whitesmoke;
+            text-decoration: none;
+            outline: none !important; /* Remove outline */
+        }
+        .nav li a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+        /*MAIN*/
+
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+            top: 10%;
+        }
+        .main h1{
+            font-family: "Prata", serif;
+            font-weight: 400;
+            font-size: 50px;
+            position: relative;
+            top: 80px;
+            left: 25px;
+        }
+        
+        .main h1 span{
+            color: #000000;
+
+        }
+        
+        .main p{
+            width: 650px;
+            text-align: justify;
+            line-height: 22px;
+            position: relative;
+            top: 100px;
+            left: 25px;
+            word-spacing: 5px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+
+        }
+        
+        .main .main_tag .main_btn{
+            background: #089da1;
+            padding: 10px 20px;
+            position: relative;
+            top: 200px;
+            left: 25px;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .main .main_img img{
+            width: 780px;
+            position: relative;
+            top: 20px;
+            left: 90px;
+        }
+
+        /*SERVICES*/
+       
+        .services{
+            width: 100%;
+            height: auto;
+            margin: 35px 0;
+        }
+        
+        .services .services_box{
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .services .services_box .services_card{
+            text-align: center;
+            width: 310px;
+            height: auto;
+            box-shadow: 0 0 8px #fff;
+            padding: 15px 10px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .services .services_box .services_card i{
+            color: #fff;
+            font-size: 45px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            
+            
+        }
+        
+        .services .services_box .services_card h3{
+            margin-bottom: 10px;
+            
+        }
+        .services .services_box .services_card p {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        
+        
+        
+        /*ABOUT*/
+        
+        .about{
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .about .about_image img{
+            width: 800px;
+        }
+        
+        .about .about_tag h1{
+            font-size: 50px;
+            position: relative;
+            bottom: 20px;
+            font-family: "Prata", serif;
+            font-weight: 400;
+            font-size: 50px;
+            
+        }
+        
+        .about .about_tag p{
+            line-height: 22px;
+            width: 650px;
+            text-align: justify;
+            margin-bottom: 15px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .about .about_tag_container .about_btn{
+            padding: 8px 20px;
+            border: 2px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+        }
+
+        .about .about_tag_container .about_btn:hover {
+            color: #000; /* Change text color to black */
+            text-decoration: none; /* Remove underline */
+            border-color: #000; /* Optionally, change border color to black */
+        }
+
+        .about .about_tag_container {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 10px;
+            padding: 20px; /* Adjust padding as needed */
+            margin-right: 50px; /* Add margin bottom to separate sections */
+        }
+        .about .about_tag_container h1 {
+            font-family: "Prata", serif;
+            font-weight: 400;
+            font-size: 50px;
+            margin-left: 15px; 
+            margin-bottom: 15px; 
+        }
+        .about .about_tag_container p {
+            line-height: 22px;
+            text-align: justify;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .about .about_tag_container:last-child {
+            margin-right: 0;
+        }
+
+        /*FEATURED BOOKS*/
+
+        .featured_books {
+            width: 100%;
+            padding: 70px 0;
+        }
+        
+        .featured_books h1 {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 30px;
+            font-family: "Prata", serif;
+            font-weight: 400;
+        }
+        
+        .featured_book_box {
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #9A7042 transparent;
+        }
+        
+        .featured_book_card {
+            width: 250px;
+            text-align: center;
+            border: 1px solid #919191;
+            margin: 0 10px;
+            padding: 10px;
+            border-radius: 10px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+        
+        .featured_book_card:hover {
+            box-shadow: 0 0 5px #9A7042;
+        }
+        
+        .featured_book_img img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        
+        .featured_book_tag h2 {
+            margin: 10px 0;
+            font-family: "Prata", serif;
+            font-weight: 400;
+        }
+        
+        .featured_book_tag .writer {
+            color: #FFCD88;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+        }
+        
+        .featured_book_tag .categories {
+            color: #000000;
+            margin-top: 8px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+        }
+        
+        .featured_book_tag .book_price {
+            color: #8E1B1B;
+            margin-top: 8px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-weight: bold;
+        }
+        
+        .featured_book_tag .book_price sub {
+            font-weight: 100;
+            padding: 0 5px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: #fff;
+        }
+        
+        .f_btn {
+            padding: 8px 20px;
+            border: 2px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+        }
+
+        .f_btn:hover {
+            color: #000; /* Change the text color to black on hover */
+            border-color: #000; /* Change the border color to black on hover */
+            text-decoration: none; /* Remove the underline */
+        }
+        
+        /* Scrollbar Styling */
+        .featured_book_box::-webkit-scrollbar {
+            width: 10px;
+            height: 5px;
+        }
+        
+        .featured_book_box::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .featured_book_box::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .featured_book_box {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .featured_book_card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+    <h1>Mystic Leaf Books</h1>
+    <nav class="navbar" style="border: 2px solid rgba(255, 255, 255, 0.3); font-family: Prata, serif; font-size: 16px; text-align: center;">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Featured">Featured</a></li>
+            <li><a href="/cart">Cart</a></li>
+            {% if current_user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="main">
+        <div class="main_tag">
+            <h1>WELCOME TO<br><span>MYSTIC LEAF BOOKS</span></h1>
+            <p>
+                Welcome to Mystic Leaf Books, a world of literary enchantment awaiting your discovery. 
+                We are an independent online bookstore specializing in fantasy, science fiction, and 
+                all realms of the imaginative and mystical.
+                Our story began with two lifelong bibliophiles who shared a passion for exploring magical 
+                new worlds between the pages. What started as a humble personal collection blossomed into
+                Mystic Leaf Books - a virtual haven for readers seeking extraordinary tales to transport 
+                them into realms of high adventure, mythical creatures, and unlimited possibilities.
+            </p>
+        </div>
+        <div class="main_img">
+            <img src="{{ url_for('static', filename='books.png') }}">
+        </div>
+    </div>
+
+    <section>
+        <!--Services-->
+
+    <div class="services">
+
+        <div class="services_box">
+
+            <div class="services_card">
+                <i class="fas fa-truck-fast"></i>
+                <h3>Fast Delivery</h3>
+                <p>
+                    Books delivered swiftly to your doorstep
+                </p>
+            </div>
+
+            <div class="services_card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>24 x 7 Services</h3>
+                <p>
+                    24 hours customer service available for every customer 
+                </p>
+            </div>
+
+            <div class="services_card">
+                <i class="fas fa-tag"></i>
+                <h3>Best Deal</h3>
+                <p>
+                    Unbeatable prices for unparalleled literary journeys
+                </p>
+            </div>
+
+            <div class="services_card">
+                <i class="fas fa-lock"></i>
+                <h3>Secure Payment</h3>
+                <p>
+                    Safe and trusted online transactions guaranteed
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!--About-->
+
+    <div id="About" class="about">
+
+        <div class="about_image">
+            <img src="{{ url_for('static', filename='about.jpg') }}">
+        </div>
+        <div class="about_tag_container">
+            <h1>About Us</h1>
+            <p>
+                At Mystic Leaf Books, we believe that every story has the power to enchant, inspire, and 
+                transport readers to realms beyond their wildest dreams. Founded by two lifelong friends 
+                and bibliophiles, our independent online bookstore is dedicated to curating an exceptional 
+                collection of fantasy, science fiction, and imaginative literature.
+                At Mystic Leaf Books, we are more than just a bookstore; we are a community of passionate readers, 
+                united by our love for the extraordinary. We invite you to join us on this journey of discovery, 
+                to share your thoughts and recommendations, and to connect with fellow bibliophiles who understand 
+                the true power of a well-crafted tale.
+            </p>
+            <a href="#" class="about_btn">Learn More</a>
+        </div>
+
+    </div>
+
+    <!--Books-->
+    <div id = "Featured" class="featured_books">
+        <h1>Featured Books</h1>
+        <div class="featured_book_box">
+            {% for book in books %}
+            <div class="featured_book_card">
+                <div class="featured_book_img">
+                    <img src="{{ url_for('static', filename=book.image) }}" alt="{{ book.title }}">
+                </div>
+                <div class="featured_book_tag">
+                    <h2>{{ book.title }}</h2>
+                    <p class="writer">{{ book.author }}</p>
+                    <div class="categories">{{ book.categories }}</div>
+                    <p class="book_price">${{ book.price }}<sub><del>${{ book.original_price }}</del></sub></p>
+                    <a href="{{ url_for('book_detail', book_id=book.id) }}" class="f_btn">Learn More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

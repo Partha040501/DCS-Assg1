@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Prata&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: url('/static/background3.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title-container h2 {
+            font-family: "Prata", serif;
+            font-weight: 400;
+            font-size: 70px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        
+        .container {
+            width: 1000px;
+            height: 100%;
+            top: 25%; /* Adjusted to move the container further down */
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(50px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative; 
+            margin-top: 50px;
+        }
+        .table {
+            background-color: rgba(91, 59, 23, 0.8);
+            padding: 20px;
+            color: whitesmoke;
+            border-radius: 20px;
+        }
+        .table-hover tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+        .custom-button {
+            padding: 8px 20px;
+            border: 2px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+        }
+
+        .custom-button:hover {
+            background-color: #000000;
+            border-color: #000000;
+            color: #fff;
+        }
+
+        .custom-remove-button {
+            padding: 8px 20px;
+            background-color: transparent; /* Red background */
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            margin-top: -5px;
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+        }
+
+        .custom-remove-button:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h2>Shopping Cart</h2>
+    </div>
+    <div class="container">
+        {% if cart_items %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="card-text"><strong>Title</strong></th>
+                    <th class="card-text"><strong>Author</strong></th>
+                    <th class="card-text"><strong>Price</strong></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td class="card-text">{{ item['title'] }}</td>
+                    <td class="card-text">{{ item['author'] }}</td>
+                    <td class="card-text">${{ item['price'] }}</td>
+                    <td>
+                        <a href="{{ url_for('remove_from_cart', book_id=item['id']) }}" class="custom-remove-button"><i class='bx bx-trash'></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+               <!-- Row for total -->
+            <tr>
+                <td colspan="2" class="card-text"><strong>Total</strong></td>
+                <td class="card-text" colspan="2"><strong>${{ total }}</strong></td>
+            </tr>
+        </tbody>
+        </table>
+        <div style="text-align:center;">
+        <a href="{{ url_for('checkout') }}" class="custom-button">Checkout</a>
+        {% else %}
+        <p class="card-text">Your cart is empty.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="custom-button">Back to Store</a>
+    </div>
+
+</body>
+</html>
